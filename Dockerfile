@@ -2,8 +2,8 @@
 FROM golang:alpine AS build
 
 # Install Tailscale & Tailscaled.
-RUN go get tailscale.com/cmd/tailscale@v1.8.1
-RUN go get tailscale.com/cmd/tailscaled@v1.8.1
+RUN go get tailscale.com/cmd/tailscale@v1.20.1
+RUN go get tailscale.com/cmd/tailscaled@v1.20.1
 
 # Build the application.
 ADD . /build
