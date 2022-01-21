@@ -16,7 +16,7 @@ echo "Started Tailscaled"
 # Authenticate
 until ./tailscale --socket=$HOME/tailscale-storage/tailscale.sock \
     up \
-    --authkey=$TAILSCALE_KEY
+    --authkey=$TAILSCALE_KEY --advertise-exit-node
 do 
     echo "Waiting for Tailscale Authentication"
     sleep 5
