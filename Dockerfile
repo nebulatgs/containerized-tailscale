@@ -5,6 +5,10 @@ FROM golang:alpine AS build
 RUN go get tailscale.com/cmd/tailscale@v1.20.1
 RUN go get tailscale.com/cmd/tailscaled@v1.20.1
 
+# Build the application.
+ADD . /build
+WORKDIR /build
+
 # Begin run step.
 FROM golang:alpine
 
