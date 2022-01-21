@@ -8,7 +8,6 @@ RUN go get tailscale.com/cmd/tailscaled@v1.20.1
 # Build the application.
 ADD . /build
 WORKDIR /build
-RUN go build -o demo .
 
 # Begin run step.
 FROM golang:alpine
@@ -27,7 +26,6 @@ USER $USER
 WORKDIR $HOME
 
 # Copy over the files.
-COPY --from=build /build/demo $HOME/demo
 COPY --from=build /build/entrypoint.sh $HOME/entrypoint.sh
 COPY --from=build $GOPATH/bin/tailscale $HOME/tailscale
 COPY --from=build $GOPATH/bin/tailscaled $HOME/tailscaled
